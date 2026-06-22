@@ -219,48 +219,47 @@
 
     <!-- เมนูหลักสไตล์แถบสีพาสเทลแบบในวิดีโอ -->
     <div class="menu-container">
-        <button class="menu-btn btn-letter" onclick="openSection('letterSec')">💌 Love Letter</button>
-        <button class="menu-btn btn-gallery" onclick="openSection('gallerySec')">📸 Photo Gallery</button>
-        <button class="menu-btn btn-timer" onclick="openSection('timerSec')">⏳ Moment of Us</button>
-        <button class="menu-btn btn-song" onclick="openSection('songSec')">🎵 Our Fav Song & Timeline</button>
+        <button type="button" class="menu-btn btn-letter" onclick="openSection('letterSec')">💌 Love Letter</button>
+        <button type="button" class="menu-btn btn-gallery" onclick="openSection('gallerySec')">📸 Photo Gallery</button>
+        <button type="button" class="menu-btn btn-timer" onclick="openSection('timerSec')">⏳ Moment of Us</button>
+        <button type="button" class="menu-btn btn-song" onclick="openSection('songSec')">🎵 Our Fav Song & Timeline</button>
     </div>
 
 
     <!-- ================= SECTION: LOVE LETTER ================= -->
     <div id="letterSec" class="section-content">
-        <button class="back-btn" onclick="closeSection('letterSec')">← Back to menu</button>
+        <button type="button" class="back-btn" onclick="closeSection('letterSec')">← Back to menu</button>
         <div class="letter-box">
             <h2 style="text-align: center; color: var(--pink-dark);">Happy Anniversary 🎉</h2>
-            <p>ขอบคุณที่อยู่ด้วยกันมานะคับเค้าดีใจมากที่มีคุณอยุ่ด้วยถึงทุกวันนี้เค้ารู้สึกดีทุกๆครั้งเลยที่มีแฟนอยู่ข้างๆตอนเค้าซึมๆก็มีแฟนคอยปลอบ รักแฟนนะคับ🫶</p>
+            <p>ขอบคุณที่อยู่ด้วยกันมานะคับ เค้าดีใจมากที่มีคุณอยู่ด้วยถึงทุกวันนี้ เค้ารู้สึกดีทุกๆ ครั้งเลยที่มีแฟนอยู่ข้างๆ ตอนเค้าซึมๆ ก็มีแฟนคอยปลอบ รักแฟนนะคับ🫶</p>
             <p style="text-align: right; font-weight: bold; margin-top: 20px;">ปล.สุขสันต์วันครบรอบน้าแมวส้ม❤️🐈</p>
         </div>
     </div>
 
 
     <!-- ================= SECTION: PHOTO GALLERY ================= -->
-    <!-- ตัวอย่าง: ส่วน PHOTO GALLERY (แก้ปิด div เกิน และแก้ชื่อไฟล์ตัวอย่าง) -->
     <div id="gallerySec" class="section-content">
-        <button class="back-btn" onclick="closeSection('gallerySec')" type="button">← Back to menu</button>
+        <button type="button" class="back-btn" onclick="closeSection('gallerySec')">← Back to menu</button>
         <h2 style="text-align: center;">Our Precious Memories</h2>
         <p style="text-align: center; margin-bottom: 30px;">Every photo tells our story ✨</p>
-    
+        
         <div class="gallery-grid">
-            <!-- ตรวจชื่อไฟล์จริงในโฟลเดอร์ image แล้วแก้ให้ตรง -->
-            <img class="gallery-item" src="image/anniversary1.jpg" alt="Memory 1">
-            <img class="gallery-item" src="image/anniversary2.jpg" alt="Memory 2">
-            <img class="gallery-item" src="image/anniversary3.jpg" alt="Memory 3">
-            <img class="gallery-item" src="image/anniversary4.jpg" alt="Memory 4">
-            <img class="gallery-item" src="image/anniversary5.jpg" alt="Memory 5">
-            <img class="gallery-item" src="image/anniversary6.jpg" alt="Memory 6">
-            <img class="gallery-item" src="image/anniversary7.jpg" alt="Memory 7">
-            <img class="gallery-item" src="image/anniversary8.jpg" alt="Memory 8">
+            <!-- สลับเปลี่ยนลิงก์รูปภาพจริงของคุณได้ที่นี่ -->
+            <img class="gallery-item" src="image/aniversary.jpg" alt="Memory 1">
+            <img class="gallery-item" src="image/aniversary2.jpg" alt="Memory 2">
+            <img class="gallery-item" src="image/aniversary3.jpg" alt="Memory 3">
+            <img class="gallery-item" src="image/aniversary8.jpg" alt="Memory 4">
+            <img class="gallery-item" src="image/aniversary5.jpg" alt="Memory 5">
+            <img class="gallery-item" src="image/aniversary10.jpg" alt="Memory 6">
+            <img class="gallery-item" src="image/aniversary7.jpg" alt="Memory 7">
+            <img class="gallery-item" src="image/aniversary9.jpg" alt="Memory 9">  
         </div>
     </div>
 
 
     <!-- ================= SECTION: TIME COUNTER ================= -->
     <div id="timerSec" class="section-content">
-        <button class="back-btn" onclick="closeSection('timerSec')">← Back to menu</button>
+        <button type="button" class="back-btn" onclick="closeSection('timerSec')">← Back to menu</button>
         <h2 style="text-align: center;">We've been in love for... ⏳</h2>
         
         <div class="timer-grid">
@@ -275,7 +274,7 @@
 
     <!-- ================= SECTION: SONG & TIMELINE ================= -->
     <div id="songSec" class="section-content">
-        <button class="back-btn" onclick="closeSection('songSec')">← Back to menu</button>
+        <button type="button" class="back-btn" onclick="closeSection('songSec')">← Back to menu</button>
         
         <!-- เครื่องเล่นเพลงจำลอง -->
         <div class="player-card">
@@ -306,50 +305,63 @@
 
     <!-- ================= JAVASCRIPT SYSTEM ================= -->
     <script>
-    function openSection(id) {
-        document.getElementById(id).classList.add('active');
-
-        // ถ้าเปิดหน้าเพลง ให้พยายามเล่นเพลง (แต่ browser อาจบล็อก autoplay)
-        if (id === 'songSec') {
-            const audio = document.getElementById('myAudio');
-            if (audio) {
-                audio.play().catch(function(error) {
-                    // แจ้งใน console ว่า autoplay ถูกบล็อก (เป็นเรื่องปกติ)
-                    console.log("Autoplay blocked by browser; user interaction required.", error);
-                });
+        // ฟังก์ชันเปิด-ปิด หน้าต่างเนื้อหา
+        function openSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('active');
+            
+            // ถ้าเปิดหน้าเพลง ให้พยายามเล่นเพลง (แต่ browser อาจบล็อก autoplay)
+            if (id === 'songSec') {
+                const audio = document.getElementById('myAudio');
+                if (audio) {
+                    audio.play().catch(function(error) {
+                        console.log("Autoplay blocked by browser; user interaction required.", error);
+                    });
+                }
             }
         }
-    }
 
-    function closeSection(id) {
-        document.getElementById(id).classList.remove('active');
-
-        // ถ้ามี element audio ให้หยุดเล่นอย่างปลอดภัย
-        const audio = document.getElementById('myAudio');
-        if (audio) {
-            audio.pause();
-            // ถ้าต้องการให้กลับไปเริ่มต้น ให้ uncomment บรรทัดถัดไป:
-            // audio.currentTime = 0;
+        function closeSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.remove('active');
+            
+            // ถ้ามี element audio ให้หยุดเล่นอย่างปลอดภัย
+            const audio = document.getElementById('myAudio');
+            if (audio) {
+                audio.pause();
+                // ถ้าต้องการให้กลับไปเริ่มต้น ให้ uncomment บรรทัดถัดไป:
+                // audio.currentTime = 0;
+            }
         }
-    }
 
-    const anniversaryDate = new Date("March 23, 2025 00:00:00").getTime();
+        // ระบบคำนวณเวลานับตั้งแต่วันครบรอบ (23 มีนาคม 2568)
+        // ตั้งค่าวันที่เริ่มต้นเป็นปี ค.ศ. (พ.ศ. 2568 = ค.ศ. 2025)
+        const anniversaryDate = new Date("March 23, 2025 00:00:00").getTime();
 
-    function updateTimer() {
-        const now = new Date().getTime();
-        const difference = now - anniversaryDate;
+        function updateTimer() {
+            const now = new Date().getTime();
+            const difference = now - anniversaryDate;
 
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            // คำนวณ วัน ชั่วโมง นาที วินาที
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        document.getElementById("days").innerText = days;
-        document.getElementById("hours").innerText = hours;
-        document.getElementById("minutes").innerText = minutes;
-        document.getElementById("seconds").innerText = seconds;
-    }
+            // แสดงผลลงในหน้าเว็บ (ตรวจ element ก่อนใช้)
+            const d = document.getElementById("days");
+            const h = document.getElementById("hours");
+            const m = document.getElementById("minutes");
+            const s = document.getElementById("seconds");
+            if (d) d.innerText = days;
+            if (h) h.innerText = hours;
+            if (m) m.innerText = minutes;
+            if (s) s.innerText = seconds;
+        }
 
-    setInterval(updateTimer, 1000);
-    updateTimer();
-</script>
+        // สั่งให้ระบบเวลาทำงานทุกๆ 1 วินาที
+        setInterval(updateTimer, 1000);
+        updateTimer(); // รันครั้งแรกทันที
+    </script>
+</body>
+</html>
