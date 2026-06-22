@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary ❤️</title>
+    <!-- นำเข้า Font น่ารักๆ จาก Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,700;1,300&family=Mali:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fcf8f2;
+            --pink-primary: #ffb7b2;
+            --pink-dark: #ff8b94;
+            --blue-pastel: #b5ead7;
+            --yellow-pastel: #ffdac1;
+            --purple-pastel: #e2f0cb;
+            --text-main: #6d5959;
+        }
+
+        body {
+            font-family: 'Mali', cursive;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* ส่วนหัวข้อหลัก */
+        header {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .main-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+            padding: 20px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 2px dashed var(--pink-dark);
+        }
+
+        .couple-img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* เมนูการ์ดสไตล์พาสเทล */
+        .menu-container {
+            width: 90%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .menu-btn {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        /* แถบสีตกแต่งปุ่ม */
+        .btn-letter { border-left: 10px solid var(--pink-primary); }
+        .btn-gallery { border-left: 10px solid #a8def0; }
+        .btn-timer { border-left: 10px solid var(--purple-pastel); }
+        .btn-song { border-left: 10px solid var(--yellow-pastel); }
+
+        /* หน้าต่างเนื้อหา (Popup/Section) */
+        .section-content {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(252, 248, 242, 0.98);
+            z-index: 100;
+            overflow-y: auto;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        .back-btn {
+            background: var(--pink-dark);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-family: 'Mali', cursive;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+
+        /* --- สไตล์ของระบบนับเวลา (Timer) --- */
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .timer-box {
+            background: white;
+            padding: 15px 5px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--pink-dark);
+        }
+        .timer-label {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* --- สไตล์ซองจดหมาย (Letter Animation จำลอง) --- */
+        .letter-box {
+            background: #fff;
+            border: 2px solid var(--pink-primary);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        /* --- สไตล์คลังภาพ (Gallery) --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .gallery-item {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background: #eee;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+        /* --- สไตล์ไทม์ไลน์ (Timeline) --- */
+        .timeline {
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px dashed var(--pink-primary);
+            text-align: left;
+        }
+        .timeline-event {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        .timeline-date {
+            font-weight: bold;
+            color: var(--pink-dark);
+        }
+
+        /* --- เครื่องเล่นเพลงจำลอง --- */
+        .player-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            max-width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- หน้าแรกหลัก -->
+    <header>
+        <h1>Our Story 💕</h1>
+        <p>บันทึกเรื่องราวการเดินทางของเราสองคน</p>
+    </header>
+
+    <div class="main-card">
+        <!-- ใส่ลิงก์รูปหน้าปกคู่รักตรงนี้ -->
+        <img src="/image/aniversary4.jpg.jpg" alt="Couple" class="couple-img">
+        <h3>To my favorite person 🐈❤️</h3>
+        <p>กดดูเมนูด้านล่างได้เลยนะค้าบ</p>
+    </div>
+
+    <!-- เมนูหลักสไตล์แถบสีพาสเทลแบบในวิดีโอ -->
+    <div class="menu-container">
+        <button class="menu-btn btn-letter" onclick="openSection('letterSec')">💌 Love Letter</button>
+        <button class="menu-btn btn-gallery" onclick="openSection('gallerySec')">📸 Photo Gallery</button>
+        <button class="menu-btn btn-timer" onclick="openSection('timerSec')">⏳ Moment of Us</button>
+        <button class="menu-btn btn-song" onclick="openSection('songSec')">🎵 Our Fav Song & Timeline</button>
+    </div>
+
+
+    <!-- ================= SECTION: LOVE LETTER ================= -->
+    <div id="letterSec" class="section-content">
+        <button class="back-btn" onclick="closeSection('letterSec')">← Back to menu</button>
+        <div class="letter-box">
+            <h2 style="text-align: center; color: var(--pink-dark);">Happy Anniversary 🎉</h2>
+            <p>ขอบคุณที่อยู่ด้วยกันมานะคับเค้าดีใจมากที่มีคุณอยุ่ด้วยถึงทุกวันนี้เค้ารู้สึกดีทุกๆครั้งเลยที่มีแฟนอยู่ข้างๆตอนเค้าซึมๆก็มีแฟนคอยปลอบ รักแฟนนะคับ🫶</p>
+            <p style="text-align: right; font-weight: bold; margin-top: 20px;">ปล.สุขสันต์วันครบรอบน้าแมวส้ม❤️🐈</p>
+        </div>
+    </div>
+
+
+    <!-- ================= SECTION: PHOTO GALLERY ================= -->
+    <div id="gallerySec" class="section-content">
+        <button class="back-btn" onclick="closeSection('gallerySec')">← Back to menu</button>
+        <h2 style="text-align: center;">Our Precious Memories</h2>
+        <p style="text-align: center; margin-bottom: 30px;">Every photo tells our story ✨</p>
+        
+        <div class="gallery-grid">
+            <!-- สลับเปลี่ยนลิงก์รูปภาพจริงของคุณได้ที่นี่ -->
+            <img class="gallery-item" src="/image/aniversary.jpg.jpg" alt="Memory 1">
+            <img class="gallery-item" src="/image/aniversary2.jpg.jpg" alt="Memory 2">
+            <img class="gallery-item" src="/image/aniversary3.jpg.jpg" alt="Memory 3">
+            <img class="gallery-item" src="/image/aniversary8.jpg.jpg" alt="Memory 4">
+            <img class="gallery-item" src="/image/aniversary5.jpg.jpg" alt="Memory 5">
+            <img class="gallery-item" src="/image/aniversary10.jpg" alt="Memory 6">
+            <img class="gallery-item" src="/image/aniversary7.jpg.jpg" alt="Memory 7">
+            <img class="gallery-item" src="/image/aniversary9.jpg.jpg" alt="Memory 9">  
+        </div>
+        </div>
+    </div>
+
+
+    <!-- ================= SECTION: TIME COUNTER ================= -->
+    <div id="timerSec" class="section-content">
+        <button class="back-btn" onclick="closeSection('timerSec')">← Back to menu</button>
+        <h2 style="text-align: center;">We've been in love for... ⏳</h2>
+        
+        <div class="timer-grid">
+            <div class="timer-box"><span id="days">0</span><div class="timer-label">DAYS</div></div>
+            <div class="timer-box"><span id="hours">0</span><div class="timer-label">HOURS</div></div>
+            <div class="timer-box"><span id="minutes">0</span><div class="timer-label">MINUTES</div></div>
+            <div class="timer-box"><span id="seconds">0</span><div class="timer-label">SECONDS</div></div>
+        </div>
+        <p style="text-align: center; margin-top: 20px;">...and counting every beautiful moment together ❤️</p>
+    </div>
+
+
+    <!-- ================= SECTION: SONG & TIMELINE ================= -->
+    <div id="songSec" class="section-content">
+        <button class="back-btn" onclick="closeSection('songSec')">← Back to menu</button>
+        
+        <!-- เครื่องเล่นเพลงจำลอง -->
+        <div class="player-card">
+            <h3 style="margin-top: 0;">🎵 เพลงโปรดของเรา</h3>
+            <p style="font-size: 0.9rem; color: #666;">I Wanna Be Yours - Arctic Monkeys</p>
+            <audio id="myAudio" controls style="width: 100%; margin-top: 10px;">
+                <!-- แปะลิงก์ไฟล์เพลง .mp3 ตรงนี้ได้เลยครับ -->
+                <source src="/mp3/I Wanna Be Yours.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <br><hr style="border: 1px dashed var(--pink-primary); width: 80%;"><br>
+
+        <!-- ไทม์ไลน์บันทึกรัก -->
+        <h2 style="text-align: center;">Our Journey Together 🗺️</h2>
+        <div class="timeline">
+            <div class="timeline-event">
+                <div class="timeline-date">23 มีนาคม 2568</div>
+                <div class="timeline-content">วันแรกที่เราตกลงคบกัน เป็นจุดเริ่มต้นเรื่องราวของหนูกับแมวส้ม 🥰</div>
+            </div>
+            <div class="timeline-event">
+                <div class="timeline-date">ปัจจุบัน</div>
+                <div class="timeline-content">ขอบคุณที่ยังอยู่ข้างๆ คอยปลอบตอนซึมเสมอนะ รักแฟนที่สุดครับ ❤️</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= JAVASCRIPT SYSTEM ================= -->
+    <script>
+        // ฟังก์ชันเปิด-ปิด หน้าต่างเนื้อหา
+        // ฟังก์ชันเปิด-ปิด หน้าต่างเนื้อหา
+        function openSection(id) {
+            document.getElementById(id).classList.add('active');
+            
+            // 🔥 เพิ่มโค้ดส่วนนี้: ถ้าเปิดหน้าเพลง ให้สั่งเล่นเพลงอัตโนมัติทันที
+            if (id === 'songSec') {
+                const audio = document.getElementById('myAudio');
+                audio.play().catch(function(error) {
+                    console.log("เบราว์เซอร์บล็อกการเล่นอัตโนมัติ ต้องมีการแตะหน้าจอก่อน: ", error);
+                });
+            }
+        }
+
+        function closeSection(id) {
+            document.getElementById(id).classList.remove('active');
+            
+            // 💡 แถมให้: ถ้ากดปิดหน้าเพลง ให้หยุดเล่นเพลงหรือปล่อยให้เล่นต่อดี? 
+            // ถ้าอยากให้เพลงหยุดเล่นตอนกด Back ให้เปิดคอมเมนต์บรรทัดด้านล่างนี้ครับ
+            document.getElementById('myAudio').pause();
+        }
+
+        // ระบบคำนวณเวลานับตั้งแต่วันครบรอบ (23 มีนาคม 2568)
+        // ตั้งค่าวันที่เริ่มต้นเป็นปี ค.ศ. (พ.ศ. 2568 = ค.ศ. 2025)
+        const anniversaryDate = new Date("March 23, 2025 00:00:00").getTime();
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const difference = now - anniversaryDate;
+
+            // คำนวณ วัน ชั่วโมง นาที วินาที
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // แสดงผลลงในหน้าเว็บ
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }
+
+        // สั่งให้ระบบเวลาทำงานทุกๆ 1 วินาที
+        setInterval(updateTimer, 1000);
+        updateTimer(); // รันครั้งแรกทันที
+    </script>
+</body>
+</html>
