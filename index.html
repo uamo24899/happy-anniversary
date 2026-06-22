@@ -238,22 +238,22 @@
 
 
     <!-- ================= SECTION: PHOTO GALLERY ================= -->
+    <!-- ตัวอย่าง: ส่วน PHOTO GALLERY (แก้ปิด div เกิน และแก้ชื่อไฟล์ตัวอย่าง) -->
     <div id="gallerySec" class="section-content">
-        <button class="back-btn" onclick="closeSection('gallerySec')">← Back to menu</button>
+        <button class="back-btn" onclick="closeSection('gallerySec')" type="button">← Back to menu</button>
         <h2 style="text-align: center;">Our Precious Memories</h2>
         <p style="text-align: center; margin-bottom: 30px;">Every photo tells our story ✨</p>
-        
+    
         <div class="gallery-grid">
-            <!-- สลับเปลี่ยนลิงก์รูปภาพจริงของคุณได้ที่นี่ -->
-            <img class="gallery-item" src="image/aniversary.jpg" alt="Memory 1">
-            <img class="gallery-item" src="image/aniversary2.jpg" alt="Memory 2">
-            <img class="gallery-item" src="image/aniversary3.jpg" alt="Memory 3">
-            <img class="gallery-item" src="image/aniversary8.jpg" alt="Memory 4">
-            <img class="gallery-item" src="image/aniversary5.jpg" alt="Memory 5">
-            <img class="gallery-item" src="image/aniversary10.jpg" alt="Memory 6">
-            <img class="gallery-item" src="image/aniversary7.jpg" alt="Memory 7">
-            <img class="gallery-item" src="image/aniversary9.jpg" alt="Memory 9">  
-        </div>
+            <!-- ตรวจชื่อไฟล์จริงในโฟลเดอร์ image แล้วแก้ให้ตรง -->
+            <img class="gallery-item" src="image/anniversary1.jpg" alt="Memory 1">
+            <img class="gallery-item" src="image/anniversary2.jpg" alt="Memory 2">
+            <img class="gallery-item" src="image/anniversary3.jpg" alt="Memory 3">
+            <img class="gallery-item" src="image/anniversary4.jpg" alt="Memory 4">
+            <img class="gallery-item" src="image/anniversary5.jpg" alt="Memory 5">
+            <img class="gallery-item" src="image/anniversary6.jpg" alt="Memory 6">
+            <img class="gallery-item" src="image/anniversary7.jpg" alt="Memory 7">
+            <img class="gallery-item" src="image/anniversary8.jpg" alt="Memory 8">
         </div>
     </div>
 
@@ -306,52 +306,50 @@
 
     <!-- ================= JAVASCRIPT SYSTEM ================= -->
     <script>
-        // ฟังก์ชันเปิด-ปิด หน้าต่างเนื้อหา
-        // ฟังก์ชันเปิด-ปิด หน้าต่างเนื้อหา
-        function openSection(id) {
-            document.getElementById(id).classList.add('active');
-            
-            // 🔥 เพิ่มโค้ดส่วนนี้: ถ้าเปิดหน้าเพลง ให้สั่งเล่นเพลงอัตโนมัติทันที
-            if (id === 'songSec') {
-                const audio = document.getElementById('myAudio');
+    function openSection(id) {
+        document.getElementById(id).classList.add('active');
+
+        // ถ้าเปิดหน้าเพลง ให้พยายามเล่นเพลง (แต่ browser อาจบล็อก autoplay)
+        if (id === 'songSec') {
+            const audio = document.getElementById('myAudio');
+            if (audio) {
                 audio.play().catch(function(error) {
-                    console.log("เบราว์เซอร์บล็อกการเล่นอัตโนมัติ ต้องมีการแตะหน้าจอก่อน: ", error);
+                    // แจ้งใน console ว่า autoplay ถูกบล็อก (เป็นเรื่องปกติ)
+                    console.log("Autoplay blocked by browser; user interaction required.", error);
                 });
             }
         }
+    }
 
-        function closeSection(id) {
-            document.getElementById(id).classList.remove('active');
-            
-            // 💡 แถมให้: ถ้ากดปิดหน้าเพลง ให้หยุดเล่นเพลงหรือปล่อยให้เล่นต่อดี? 
-            // ถ้าอยากให้เพลงหยุดเล่นตอนกด Back ให้เปิดคอมเมนต์บรรทัดด้านล่างนี้ครับ
-            document.getElementById('myAudio').pause();
+    function closeSection(id) {
+        document.getElementById(id).classList.remove('active');
+
+        // ถ้ามี element audio ให้หยุดเล่นอย่างปลอดภัย
+        const audio = document.getElementById('myAudio');
+        if (audio) {
+            audio.pause();
+            // ถ้าต้องการให้กลับไปเริ่มต้น ให้ uncomment บรรทัดถัดไป:
+            // audio.currentTime = 0;
         }
+    }
 
-        // ระบบคำนวณเวลานับตั้งแต่วันครบรอบ (23 มีนาคม 2568)
-        // ตั้งค่าวันที่เริ่มต้นเป็นปี ค.ศ. (พ.ศ. 2568 = ค.ศ. 2025)
-        const anniversaryDate = new Date("March 23, 2025 00:00:00").getTime();
+    const anniversaryDate = new Date("March 23, 2025 00:00:00").getTime();
 
-        function updateTimer() {
-            const now = new Date().getTime();
-            const difference = now - anniversaryDate;
+    function updateTimer() {
+        const now = new Date().getTime();
+        const difference = now - anniversaryDate;
 
-            // คำนวณ วัน ชั่วโมง นาที วินาที
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            // แสดงผลลงในหน้าเว็บ
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
-        }
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+    }
 
-        // สั่งให้ระบบเวลาทำงานทุกๆ 1 วินาที
-        setInterval(updateTimer, 1000);
-        updateTimer(); // รันครั้งแรกทันที
-    </script>
-</body>
-</html>
+    setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
