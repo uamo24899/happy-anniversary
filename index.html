@@ -212,7 +212,7 @@
 
     <div class="main-card">
         <!-- ใส่ลิงก์รูปหน้าปกคู่รักตรงนี้ -->
-        <img src="image/aniversary4.jpg" alt="Couple" class="couple-img">
+        <img src="image/aniversary4.jpg" alt="Couple" class="couple-img" loading="lazy">
         <h3>To my favorite person 🐈❤️</h3>
         <p>กดดูเมนูด้านล่างได้เลยนะค้าบ</p>
     </div>
@@ -227,39 +227,39 @@
 
 
     <!-- ================= SECTION: LOVE LETTER ================= -->
-    <div id="letterSec" class="section-content">
-        <button type="button" class="back-btn" onclick="closeSection('letterSec')">← Back to menu</button>
+    <div id="letterSec" class="section-content" aria-hidden="true">
+        <button type="button" class="back-btn" onclick="closeSection('letterSec')" aria-label="Back to menu">← Back to menu</button>
         <div class="letter-box">
             <h2 style="text-align: center; color: var(--pink-dark);">Happy Anniversary 🎉</h2>
-            <p>ขอบคุณที่อยู่ด้วยกันมานะคับ เค้าดีใจมากที่มีคุณอยู่ด้วยถึงทุกวันนี้ เค้ารู้สึกดีทุกๆ ครั้งเลยที่มีแฟนอยู่ข้างๆ ตอนเค้าซึมๆ ก็มีแฟนคอยปลอบ รักแฟนนะคับ🫶</p>
+            <p>ขอบคุณที่อยู่ด้วยกันมานะครับ ผมดีใจมากที่มีคุณเคียงข้างในทุกช่วงเวลา ทุกยามสุข ทุกยามเศร้า ขอบคุณที่เข้าใจและให้กำลังใจเสมอ สิ่งเล็ก ๆ ที่เราทำร่วมกันทำให้ทุกวันมีความหมายสำหรับผม รักคุณมากนะครับ</p>
             <p style="text-align: right; font-weight: bold; margin-top: 20px;">ปล.สุขสันต์วันครบรอบน้าแมวส้ม❤️🐈</p>
         </div>
     </div>
 
 
     <!-- ================= SECTION: PHOTO GALLERY ================= -->
-    <div id="gallerySec" class="section-content">
-        <button type="button" class="back-btn" onclick="closeSection('gallerySec')">← Back to menu</button>
+    <div id="gallerySec" class="section-content" aria-hidden="true">
+        <button type="button" class="back-btn" onclick="closeSection('gallerySec')" aria-label="Back to menu">← Back to menu</button>
         <h2 style="text-align: center;">Our Precious Memories</h2>
         <p style="text-align: center; margin-bottom: 30px;">Every photo tells our story ✨</p>
         
         <div class="gallery-grid">
             <!-- สลับเปลี่ยนลิงก์รูปภาพจริงของคุณได้ที่นี่ -->
-            <img class="gallery-item" src="image/aniversary.jpg" alt="Memory 1">
-            <img class="gallery-item" src="image/aniversary2.jpg" alt="Memory 2">
-            <img class="gallery-item" src="image/aniversary3.jpg" alt="Memory 3">
-            <img class="gallery-item" src="image/aniversary8.jpg" alt="Memory 4">
-            <img class="gallery-item" src="image/aniversary5.jpg" alt="Memory 5">
-            <img class="gallery-item" src="image/aniversary10.jpg" alt="Memory 6">
-            <img class="gallery-item" src="image/aniversary7.jpg" alt="Memory 7">
-            <img class="gallery-item" src="image/aniversary9.jpg" alt="Memory 9">  
+            <img class="gallery-item" src="image/aniversary.jpg" alt="Memory 1" loading="lazy">
+            <img class="gallery-item" src="image/aniversary2.jpg" alt="Memory 2" loading="lazy">
+            <img class="gallery-item" src="image/aniversary3.jpg" alt="Memory 3" loading="lazy">
+            <img class="gallery-item" src="image/aniversary8.jpg" alt="Memory 4" loading="lazy">
+            <img class="gallery-item" src="image/aniversary5.jpg" alt="Memory 5" loading="lazy">
+            <img class="gallery-item" src="image/aniversary10.jpg" alt="Memory 6" loading="lazy">
+            <img class="gallery-item" src="image/aniversary7.jpg" alt="Memory 7" loading="lazy">
+            <img class="gallery-item" src="image/aniversary9.jpg" alt="Memory 8" loading="lazy">  
         </div>
     </div>
 
 
     <!-- ================= SECTION: TIME COUNTER ================= -->
-    <div id="timerSec" class="section-content">
-        <button type="button" class="back-btn" onclick="closeSection('timerSec')">← Back to menu</button>
+    <div id="timerSec" class="section-content" aria-hidden="true">
+        <button type="button" class="back-btn" onclick="closeSection('timerSec')" aria-label="Back to menu">← Back to menu</button>
         <h2 style="text-align: center;">We've been in love for... ⏳</h2>
         
         <div class="timer-grid">
@@ -273,16 +273,17 @@
 
 
     <!-- ================= SECTION: SONG & TIMELINE ================= -->
-    <div id="songSec" class="section-content">
-        <button type="button" class="back-btn" onclick="closeSection('songSec')">← Back to menu</button>
+    <div id="songSec" class="section-content" aria-hidden="true">
+        <button type="button" class="back-btn" onclick="closeSection('songSec')" aria-label="Back to menu">← Back to menu</button>
         
         <!-- เครื่องเล่นเพลงจำลอง -->
         <div class="player-card">
             <h3 style="margin-top: 0;">🎵 เพลงโปรดของเรา</h3>
             <p style="font-size: 0.9rem; color: #666;">I Wanna Be Yours - Arctic Monkeys</p>
             <audio id="myAudio" controls style="width: 100%; margin-top: 10px;" playsinline>
-                <!-- แปะลิงก์ไฟล์เพลง .mp3 ตรงนี้ได้เลยครับ -->
-                <source src="mp3/i-wanna-be-yours.mp3" type="audio/mpeg">
+                <!-- ใช้ชื่อไฟล์ตรงกับที่มีใน repo (มีช่องว่าง) -->
+                <source src="mp3/I%20Wanna%20Be%20Yours.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
             </audio>
         </div>
 
@@ -293,11 +294,11 @@
         <div class="timeline">
             <div class="timeline-event">
                 <div class="timeline-date">23 มีนาคม 2568</div>
-                <div class="timeline-content">วันแรกที่เราตกลงคบกัน เป็นจุดเริ่มต้นเรื่องราวของหนูกับแมวส้ม 🥰</div>
+                <div class="timeline-content">วันแรกที่เราตกลงคบกัน เป็นจุดเริ่มต้นของเรื่องราวที่สวยงาม เราได้เรียนรู้กันและกันผ่านทั้งรอยยิ้มและน้ำตา ทุกความทรงจำยังคงอบอวลอยู่ในหัวใจ</div>
             </div>
             <div class="timeline-event">
                 <div class="timeline-date">ปัจจุบัน</div>
-                <div class="timeline-content">ขอบคุณที่ยังอยู่ข้างๆ คอยปลอบตอนซึมเสมอนะ รักแฟนที่สุดครับ ❤️</div>
+                <div class="timeline-content">ขอบคุณที่ยังอยู่ข้างๆ คอยปลอบและเป็นกำลังใจให้เสมอ ความรักของเราทำให้ทุกวันมีค่า รักคุณมากนะครับ</div>
             </div>
         </div>
     </div>
@@ -305,11 +306,31 @@
 
     <!-- ================= JAVASCRIPT SYSTEM ================= -->
     <script>
-        // ฟังก์ชันเปิด-ปิด หน้าต่างเนื้อหา
+        // ฟังก์ชันเปิด-ปิด หน้าต่างเนื้อหา พร้อมจัดการ accessibility (focus และ aria-hidden)
+        const lastFocused = { el: null };
+
         function openSection(id) {
             const el = document.getElementById(id);
-            if (el) el.classList.add('active');
-            
+            if (!el) return;
+
+            // เก็บ element ที่มี focus ก่อนหน้า
+            lastFocused.el = document.activeElement;
+
+            // แสดง section และตั้งค่า ARIA
+            el.classList.add('active');
+            el.setAttribute('role', 'dialog');
+            el.setAttribute('aria-modal', 'true');
+            el.setAttribute('aria-hidden', 'false');
+
+            // ซ่อนเนื้อหาอื่นจาก screen readers
+            document.querySelectorAll('.section-content').forEach(section => {
+                if (section.id !== id) section.setAttribute('aria-hidden', 'true');
+            });
+
+            // focus ไปที่ปุ่มกลับถ้ามี
+            const back = el.querySelector('.back-btn');
+            if (back) back.focus();
+
             // ถ้าเปิดหน้าเพลง ให้พยายามเล่นเพลง (แต่ browser อาจบล็อก autoplay)
             if (id === 'songSec') {
                 const audio = document.getElementById('myAudio');
@@ -323,8 +344,21 @@
 
         function closeSection(id) {
             const el = document.getElementById(id);
-            if (el) el.classList.remove('active');
-            
+            if (!el) return;
+
+            el.classList.remove('active');
+            el.removeAttribute('role');
+            el.removeAttribute('aria-modal');
+            el.setAttribute('aria-hidden', 'true');
+
+            // คืนค่า aria-hidden ให้ส่วนอื่น
+            document.querySelectorAll('.section-content').forEach(section => {
+                if (section.id !== id) section.setAttribute('aria-hidden', 'false');
+            });
+
+            // คืน focus ไปยัง element ที่เคยมี focus ก่อนหน้านี้
+            if (lastFocused.el) lastFocused.el.focus();
+
             // ถ้ามี element audio ให้หยุดเล่นอย่างปลอดภัย
             const audio = document.getElementById('myAudio');
             if (audio) {
@@ -336,11 +370,15 @@
 
         // ระบบคำนวณเวลานับตั้งแต่วันครบรอบ (23 มีนาคม 2568)
         // ตั้งค่าวันที่เริ่มต้นเป็นปี ค.ศ. (พ.ศ. 2568 = ค.ศ. 2025)
-        const anniversaryDate = new Date("March 23, 2025 00:00:00").getTime();
+        // ใช้ ISO 8601 เพื่อความแน่นอน
+        const anniversaryDate = Date.parse("2025-03-23T00:00:00");
 
         function updateTimer() {
-            const now = new Date().getTime();
-            const difference = now - anniversaryDate;
+            const now = Date.now();
+            let difference = now - anniversaryDate;
+
+            // ถ้ายังไม่ถึงวันครบรอบ ให้คลัมป์เป็น 0
+            if (difference < 0) difference = 0;
 
             // คำนวณ วัน ชั่วโมง นาที วินาที
             const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -359,9 +397,14 @@
             if (s) s.innerText = seconds;
         }
 
-        // สั่งให้ระบบเวลาทำงานทุกๆ 1 วินาที
-        setInterval(updateTimer, 1000);
-        updateTimer(); // รันครั้งแรกทันที
+        // ใช้ setTimeout แบบปรับเพื่อจับให้ตรงวินาที ลดการ drift
+        function scheduleTimerTick() {
+            updateTimer();
+            const now = Date.now();
+            const delay = 1000 - (now % 1000);
+            setTimeout(scheduleTimerTick, delay);
+        }
+        scheduleTimerTick();
     </script>
 </body>
 </html>
